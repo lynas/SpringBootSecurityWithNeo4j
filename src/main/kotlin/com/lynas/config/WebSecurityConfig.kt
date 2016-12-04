@@ -2,7 +2,6 @@ package com.lynas.config
 
 import com.lynas.service.UserDetailService
 import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder
 import org.springframework.security.config.annotation.web.builders.HttpSecurity
@@ -32,12 +31,9 @@ open class WebSecurityConfig(val userDetailService: UserDetailService) : WebSecu
                 .permitAll()
     }
 
-    @Bean
-    open fun bcryptEncoder() = BCryptPasswordEncoder()
-
     @Autowired
     @Throws(Exception::class)
     open fun configureGlobal(auth: AuthenticationManagerBuilder) {
-        auth.userDetailsService(userDetailService).passwordEncoder(bcryptEncoder())
+        auth.userDetailsService(userDetailService).passwordEncoder(BCryptPasswordEncoder())
     }
 }
