@@ -1,6 +1,6 @@
 # SpringBootSecurityWithNeo4j
 
-Spring boot project with spring security authentication server ins neo4j
+Spring boot project with spring security authentication db server is neo4j
 
 
 Run this insert statement first
